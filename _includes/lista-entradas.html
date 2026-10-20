@@ -1,0 +1,16 @@
+{%- comment -%}
+  Lista de entradas. Parámetros: entradas (lista), vacio (texto cuando no hay entradas).
+{%- endcomment -%}
+{%- if include.entradas.size > 0 %}
+<ol class="entradas">
+  {%- for e in include.entradas %}
+  <li class="entrada">
+    <p class="entrada-meta"><span>{% assign clave = e.categories | first %}{% include nombre-seccion.html clave=clave %}</span> · <time datetime="{{ e.date | date_to_xmlschema }}">{{ e.date | date: '%d/%m/%Y' }}</time></p>
+    <h3 class="entrada-titulo"><a href="{{ e.url | relative_url }}">{{ e.title }}</a></h3>
+    {%- if e.resumen %}<p class="entrada-resumen">{{ e.resumen }}</p>{% endif %}
+  </li>
+  {%- endfor %}
+</ol>
+{%- else %}
+<p class="vacio">{{ include.vacio | default: "Todavía no hay entradas publicadas." }}</p>
+{%- endif %}

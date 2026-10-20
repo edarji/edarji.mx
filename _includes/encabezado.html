@@ -1,0 +1,23 @@
+<header class="encabezado">
+  <div class="contenedor encabezado-fila">
+    <a class="logo" href="{{ '/' | relative_url }}">
+      <span class="logo-firma">Edarji</span>
+      <span class="logo-cuaderno">{{ site.tagline }}</span>
+    </a>
+    <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>
+      <span class="sr-only">Abrir menú</span>
+      <span class="menu-linea" aria-hidden="true"></span>
+      <span class="menu-linea" aria-hidden="true"></span>
+    </button>
+    <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+      <ul>
+        {%- for item in site.data.navegacion %}
+        {%- assign actual = false %}
+        {%- if item.url == '/' %}{% if page.url == '/' %}{% assign actual = true %}{% endif %}
+        {%- elsif page.url contains item.url %}{% assign actual = true %}{% endif %}
+        <li><a href="{{ item.url | relative_url }}"{% if actual %} aria-current="page"{% endif %}>{{ item.titulo }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

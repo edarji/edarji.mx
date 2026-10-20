@@ -1,23 +1,20 @@
-# Ed ArJi Jazz — edarji.mx
+# edarji.mx · El Cuaderno Abierto
 
-Sitio personal sobre jazz, estático, responsive y listo para GitHub Pages.
+Sitio personal de Eduardo ArJi: música, ideas, tecnología y vida en el mismo lugar.
+Sitio estático construido con **Jekyll**, que GitHub Pages compila automáticamente al hacer push a `main`.
 
-## Personalización
+| Quiero… | Lee |
+|---|---|
+| Publicar un artículo | [docs/publicar-articulo.md](docs/publicar-articulo.md) |
+| Agregar una fotografía | [docs/fotografias.md](docs/fotografias.md) |
+| Entender cómo está hecho | [docs/arquitectura.md](docs/arquitectura.md) |
+| Deshacer un cambio publicado | [docs/revertir.md](docs/revertir.md) |
 
-Busca `PERSONALIZAR` en `index.html`. Ahí están marcados la frase principal, tu historia con el jazz, los discos recomendados, el correo y las redes sociales.
+## Vista previa en tu Mac (opcional)
 
-La imagen principal se encuentra en `assets/eduardo-saxofon.jpeg`. Si deseas cambiarla, conserva ese nombre para no modificar el código.
+```bash
+bundle install            # una sola vez: instala Jekyll con la misma versión que GitHub Pages
+bundle exec jekyll serve  # abre http://localhost:4000
+```
 
-El sitio sirve versiones ligeras de esa imagen en AVIF y WebP (`assets/eduardo-saxofon-480|768|1024.avif|webp`). Si cambias la imagen, vuelve a generar también esas versiones; si no, seguirá apareciendo la anterior en la mayoría de los navegadores.
-
-Las portadas y reproductores de Kind of Blue, A Love Supreme y Time Out se cargan oficialmente desde Spotify. Para mostrarlos, el visitante necesita conexión a Internet.
-
-## Publicación con GitHub Pages
-
-1. Sube el contenido de esta carpeta a un repositorio de GitHub.
-2. En el repositorio, abre **Settings → Pages**.
-3. Selecciona **Deploy from a branch**, la rama `main` y la carpeta raíz `/`.
-4. En la configuración del dominio personalizado, escribe `edarji.mx`.
-5. Configura en tu proveedor de dominio los registros DNS indicados por GitHub y activa **Enforce HTTPS** cuando esté disponible.
-
-El archivo `CNAME` ya incluye el dominio personalizado.
+`CNAME` contiene el dominio `edarji.mx`: no lo borres ni lo cambies.

@@ -1,0 +1,4 @@
+{%- comment -%} Nombre con acentos de una sección a partir de su clave (p. ej. musica → Música). {%- endcomment -%}
+{%- assign url_seccion = '/' | append: include.clave | append: '/' -%}
+{%- assign item = site.data.navegacion | where: "url", url_seccion | first -%}
+{%- if item %}{{ item.titulo }}{% else %}{{ include.clave | capitalize }}{% endif -%}

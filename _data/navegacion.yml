@@ -1,0 +1,13 @@
+# Menú principal. Cambiar aquí cambia el menú en todas las páginas.
+- titulo: Inicio
+  url: /
+- titulo: Ideas
+  url: /ideas/
+- titulo: Música
+  url: /musica/
+- titulo: Laboratorio
+  url: /laboratorio/
+- titulo: Biblioteca
+  url: /biblioteca/
+- titulo: Sobre mí
+  url: /sobre-mi/

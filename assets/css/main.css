@@ -1,0 +1,960 @@
+/* ==========================================================================
+   edarji.mx · El Cuaderno Abierto v0.2
+   Paleta y dirección visual: handover de ChatGPT (20-oct-2026).
+   ========================================================================== */
+
+/* ---------- Tipografías (alojadas en el repositorio, licencia OFL) ---------- */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/fraunces-latin-wght-normal.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/fraunces-latin-wght-italic.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../fonts/source-sans-3-latin-wght-normal.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Caveat";
+  src: url("../fonts/caveat-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Variables de diseño ---------- */
+
+:root {
+  /* Paleta de referencia aprobada */
+  --crema: #f5ede0;
+  --azul: #153b55;
+  --ocre: #e7ae30;
+  --terracota: #bd573f;
+  --carbon: #242424;
+
+  /* Ajustes de accesibilidad (propuestos, pendientes de validación de ChatGPT):
+     terracota y ocre no alcanzan 4,5:1 sobre crema para texto pequeño. */
+  --terracota-texto: #a3462f; /* 5,2:1 sobre crema */
+  --carbon-suave: #4a4540;    /* texto secundario */
+  --papel: #fbf6ec;           /* superficie de tarjetas */
+  --linea: rgba(36, 36, 36, 0.14);
+
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --manuscrita: "Caveat", "Bradley Hand", cursive;
+
+  --ancho: 1180px;
+  --ancho-lectura: 42rem;
+  --margen: clamp(1rem, 4vw, 3rem);
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--carbon);
+  background-color: var(--crema);
+  /* Textura sutil de papel */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .14 0 0 0 0 .12 0 0 0 0 .09 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  font-family: var(--sans);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--azul);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--terracota-texto);
+}
+
+:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0;
+  font-variation-settings: "SOFT" 50, "WONK" 1;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+em {
+  font-style: italic;
+}
+
+h1 em,
+h2 em {
+  color: var(--terracota);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.saltar {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--azul);
+  color: var(--crema);
+}
+
+.saltar:focus {
+  top: 1rem;
+}
+
+.contenedor {
+  width: min(var(--ancho), 100% - 2 * var(--margen));
+  margin-inline: auto;
+}
+
+.contenedor-lectura {
+  width: min(var(--ancho-lectura), 100% - 2 * var(--margen));
+  margin-inline: auto;
+}
+
+.etiqueta {
+  margin: 0 0 1rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracota-texto);
+}
+
+.etiqueta .numero {
+  color: var(--azul);
+  margin-right: 0.6rem;
+}
+
+.etiqueta a {
+  color: inherit;
+}
+
+/* ---------- Encabezado ---------- */
+
+.encabezado {
+  border-bottom: 1px solid var(--linea);
+}
+
+.encabezado-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 84px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  color: var(--carbon);
+  text-decoration: none;
+}
+
+.logo-firma {
+  font-family: var(--manuscrita);
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--azul);
+}
+
+.logo-cuaderno {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--carbon-suave);
+}
+
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  display: inline-block;
+  padding: 0.5rem 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--carbon);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  border-bottom-color: var(--ocre);
+  color: var(--carbon);
+}
+
+.menu-boton {
+  display: none;
+}
+
+/* ---------- Botón ---------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 48px;
+  padding: 0.8rem 1.5rem;
+  background: var(--azul);
+  color: var(--crema);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2px;
+  box-shadow: 5px 5px 0 var(--ocre);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.boton:hover {
+  color: var(--crema);
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--ocre);
+}
+
+/* ---------- Portada: hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.hero-titulo {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(3.4rem, 9vw, 7.5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  color: var(--azul);
+}
+
+.hero-titulo .acento {
+  color: var(--terracota);
+  font-style: italic;
+}
+
+.hero-intro {
+  max-width: 32rem;
+  margin: 2rem 0 2.2rem;
+  font-size: 1.25rem;
+  color: var(--carbon-suave);
+}
+
+.hero-imagen {
+  position: relative;
+  padding: 1.5rem;
+}
+
+.trazos {
+  position: absolute;
+  inset: -0.5rem;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.trazo {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 14;
+  opacity: 0.85;
+}
+
+.trazo-ocre {
+  stroke: var(--ocre);
+}
+
+.trazo-azul {
+  stroke: var(--azul);
+  stroke-width: 10;
+}
+
+.trazo-terracota {
+  stroke: var(--terracota);
+}
+
+.mancha-ocre {
+  fill: var(--ocre);
+  opacity: 0.75;
+}
+
+.nota-manuscrita {
+  position: absolute;
+  right: 0.5rem;
+  bottom: -1.6rem;
+  margin: 0;
+  font-family: var(--manuscrita);
+  font-size: 1.6rem;
+  color: var(--azul);
+  transform: rotate(-4deg);
+}
+
+/* ---------- Figuras y fotografía pendiente ---------- */
+
+.figura {
+  position: relative;
+  margin: 0;
+}
+
+.figura img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero-foto img,
+.hero-foto .foto-pendiente {
+  aspect-ratio: 3 / 4;
+  box-shadow: 0 20px 40px rgba(21, 59, 85, 0.18);
+}
+
+.foto-pendiente {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  padding: 2rem;
+  text-align: center;
+  background: var(--papel);
+  border: 2px dashed var(--carbon-suave);
+  color: var(--carbon-suave);
+}
+
+.foto-pendiente-titulo {
+  font-weight: 600;
+}
+
+.foto-pendiente-archivo {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.9rem;
+}
+
+/* ---------- Bloques de portada ---------- */
+
+.recientes,
+.areas {
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+  border-top: 1px solid var(--linea);
+}
+
+.bloque-cabecera {
+  margin-bottom: 2.5rem;
+}
+
+.vacio {
+  max-width: 38rem;
+  margin: 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--papel);
+  border-left: 4px solid var(--ocre);
+  color: var(--carbon-suave);
+}
+
+.entradas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entrada {
+  padding-top: 1.25rem;
+  border-top: 3px solid var(--azul);
+}
+
+.entrada-meta {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--carbon-suave);
+}
+
+.entrada-titulo {
+  font-size: 1.6rem;
+}
+
+.entrada-titulo a {
+  color: var(--carbon);
+  text-decoration: none;
+}
+
+.entrada-titulo a:hover {
+  color: var(--terracota-texto);
+}
+
+.entrada-resumen {
+  margin: 0.6rem 0 0;
+  color: var(--carbon-suave);
+}
+
+/* ---------- Áreas del cuaderno ---------- */
+
+.areas-rejilla {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.area {
+  grid-column: span 2;
+}
+
+.area:nth-child(1),
+.area:nth-child(2) {
+  grid-column: span 3;
+}
+
+.area a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  min-height: 13rem;
+  padding: 1.75rem;
+  background: var(--papel);
+  color: var(--carbon);
+  text-decoration: none;
+  border-top: 6px solid var(--color-area);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.area a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(21, 59, 85, 0.12);
+}
+
+.area-azul {
+  --color-area: var(--azul);
+}
+
+.area-terracota {
+  --color-area: var(--terracota);
+}
+
+.area-ocre {
+  --color-area: var(--ocre);
+}
+
+.area-numero {
+  font-family: var(--manuscrita);
+  font-size: 1.5rem;
+  color: var(--carbon-suave);
+}
+
+.area-titulo {
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.area-descripcion {
+  color: var(--carbon-suave);
+}
+
+/* ---------- Secciones ---------- */
+
+.seccion-cabecera {
+  padding-block: clamp(3rem, 7vw, 5rem) 2rem;
+}
+
+.seccion-cabecera h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  color: var(--azul);
+}
+
+.seccion-intro {
+  max-width: 36rem;
+  margin: 1.25rem 0 0;
+  font-size: 1.25rem;
+  color: var(--carbon-suave);
+}
+
+.seccion-entradas {
+  padding-block: 2.5rem 5rem;
+}
+
+.bloque-titulo {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Música (contenido de jazz conservado) ---------- */
+
+.musica-portada {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 3rem;
+  align-items: center;
+  padding-block: 2rem 4rem;
+}
+
+.titulo-grande {
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  color: var(--azul);
+}
+
+.bloque {
+  padding-block: clamp(3rem, 7vw, 5rem);
+  border-top: 1px solid var(--linea);
+}
+
+.bloque-intro {
+  max-width: 34rem;
+  color: var(--carbon-suave);
+}
+
+.dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  max-width: 54rem;
+  margin-top: 2rem;
+  color: var(--carbon-suave);
+}
+
+.dos-columnas p {
+  margin: 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--azul);
+  border-radius: 99px;
+  font-size: 0.95rem;
+  color: var(--azul);
+}
+
+.discos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.disco {
+  min-width: 0;
+}
+
+.disco h3 {
+  font-size: 1.8rem;
+}
+
+.disco p:last-child {
+  color: var(--carbon-suave);
+}
+
+.disco-meta {
+  margin: 1.25rem 0 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracota-texto);
+}
+
+.spotify {
+  display: block;
+  border: 0;
+  border-radius: 12px;
+  background: var(--azul);
+}
+
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.cita {
+  margin: 0;
+  padding: clamp(3rem, 8vw, 6rem) var(--margen);
+  background: var(--azul);
+  color: var(--crema);
+  text-align: center;
+}
+
+.cita blockquote {
+  margin: 0 auto;
+  max-width: 50rem;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.1;
+}
+
+.cita em {
+  color: var(--ocre);
+}
+
+.cita figcaption {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ---------- Artículos y páginas ---------- */
+
+.articulo,
+.pagina {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.articulo-cabecera {
+  margin-bottom: 2.5rem;
+}
+
+.articulo-cabecera h1 {
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  color: var(--azul);
+}
+
+.articulo-resumen {
+  margin: 1.25rem 0 0;
+  font-size: 1.3rem;
+  color: var(--carbon-suave);
+}
+
+.prosa {
+  font-size: 1.2rem;
+}
+
+.prosa h2 {
+  margin: 2.5rem 0 1rem;
+  font-size: 2rem;
+}
+
+.prosa h3 {
+  margin: 2rem 0 0.75rem;
+}
+
+.prosa blockquote {
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--ocre);
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.prosa .figura {
+  margin: 2rem 0;
+}
+
+.prosa figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--carbon-suave);
+}
+
+.sobre-mi-foto {
+  max-width: 22rem;
+  margin: 0 0 2rem;
+}
+
+.articulo-etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.articulo-etiquetas a,
+.articulo-etiquetas span {
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--linea);
+  border-radius: 99px;
+  font-size: 0.95rem;
+}
+
+/* ---------- Pie ---------- */
+
+.pie {
+  margin-top: 2rem;
+  padding-block: 3rem;
+  background: var(--carbon);
+  color: var(--crema);
+}
+
+.pie-fila {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem 2rem;
+  align-items: baseline;
+}
+
+.pie p {
+  margin: 0;
+}
+
+.pie .logo-firma {
+  color: var(--ocre);
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+}
+
+.pie-lema {
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+.pie-enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.pie a {
+  display: inline-block;
+  padding-block: 0.4rem;
+  color: var(--crema);
+}
+
+.pie a:hover {
+  color: var(--ocre);
+}
+
+.pie-copy {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ---------- Animación discreta: no oculta contenido ---------- */
+
+@keyframes aparecer {
+  from {
+    opacity: 0.001;
+    transform: translateY(12px);
+  }
+}
+
+.hero-texto,
+.hero-imagen {
+  animation: aparecer 0.8s ease-out both;
+}
+
+.hero-imagen {
+  animation-delay: 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- Tableta ---------- */
+
+@media (max-width: 960px) {
+  .areas-rejilla {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .area,
+  .area:nth-child(1),
+  .area:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  .discos {
+    grid-template-columns: 1fr;
+    max-width: 34rem;
+  }
+}
+
+/* ---------- Móvil ---------- */
+
+@media (max-width: 800px) {
+  .encabezado-fila {
+    min-height: 72px;
+  }
+
+  .logo-cuaderno {
+    display: none;
+  }
+
+  /* Menú compacto solo cuando el JavaScript está activo */
+  .con-menu-compacto .menu-boton {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    width: 48px;
+    height: 48px;
+    padding: 0 10px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .menu-linea {
+    display: block;
+    height: 2px;
+    background: var(--carbon);
+  }
+
+  .con-menu-compacto .menu {
+    display: none;
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+
+  .con-menu-compacto .menu.abierto {
+    display: block;
+  }
+
+  .con-menu-compacto .menu ul {
+    flex-direction: column;
+  }
+
+  .con-menu-compacto .menu a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 1.15rem;
+  }
+
+  .menu {
+    width: 100%;
+    padding-bottom: 0.75rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-imagen {
+    max-width: 26rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .musica-portada,
+  .dos-columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .musica-foto {
+    max-width: 22rem;
+  }
+
+  .pie-fila {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    font-size: 1.0625rem;
+  }
+
+  .areas-rejilla {
+    grid-template-columns: 1fr;
+  }
+
+  .area a {
+    min-height: 0;
+  }
+}

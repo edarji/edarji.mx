@@ -1,0 +1,24 @@
+---
+layout: base
+---
+<article class="articulo contenedor-lectura">
+  <header class="articulo-cabecera">
+    <p class="etiqueta">
+      {%- assign clave = page.categories | first %}
+      <a href="{{ '/' | append: clave | append: '/' | relative_url }}">{% include nombre-seccion.html clave=clave %}</a>
+      · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d/%m/%Y' }}</time>
+    </p>
+    <h1>{{ page.title }}</h1>
+    {%- if page.resumen %}<p class="articulo-resumen">{{ page.resumen }}</p>{% endif %}
+  </header>
+  <div class="prosa">
+    {{ content }}
+  </div>
+  {%- if page.tags.size > 0 %}
+  <p class="articulo-etiquetas">
+    {%- for t in page.tags %}
+    {%- if t == "exploracion" %}<a href="{{ '/exploracion/' | relative_url }}">Exploración</a>{% else %}<span>{{ t }}</span>{% endif %}
+    {%- endfor %}
+  </p>
+  {%- endif %}
+</article>

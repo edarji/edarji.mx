@@ -1,0 +1,6 @@
+{%- comment -%}
+  Video de YouTube sin cookies de seguimiento. Uso: {% include youtube.html id="XXXXXXXXXXX" titulo="Nombre del video" %}
+{%- endcomment -%}
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/{{ include.id }}" title="{{ include.titulo }}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+</div>

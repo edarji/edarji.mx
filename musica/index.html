@@ -1,0 +1,67 @@
+---
+layout: seccion
+title: Música
+seccion: musica
+intro: Jazz, saxofón, Big Band, grabaciones, discos y experiencias musicales.
+---
+{%- comment -%}
+  Contenido de jazz conservado íntegro del sitio original "Ed ArJi Jazz" (commit 6758c1a).
+{%- endcomment -%}
+<div class="musica-portada">
+  <div class="musica-texto">
+    <p class="etiqueta">Discos · Historias · Improvisación</p>
+    <h2 class="titulo-grande">El jazz se escucha <em>mejor sin prisa.</em></h2>
+    <p class="seccion-intro">Un espacio personal para compartir la música, los intérpretes y las historias que hacen del jazz una conversación siempre abierta.</p>
+  </div>
+  {% include figura.html foto=site.data.fotos.musica clase="musica-foto" sizes="(max-width: 800px) 88vw, 400px" %}
+</div>
+
+<section class="bloque" id="historia" aria-labelledby="historia-titulo">
+  <p class="etiqueta"><span class="numero">01</span> Mi relación con el jazz</p>
+  <h2 id="historia-titulo">Una música que premia la curiosidad.</h2>
+  <div class="dos-columnas">
+    <p>Mi interés por el jazz nació de escuchar cómo una misma melodía puede convertirse en algo distinto cada noche. Desde entonces, cada disco es una puerta a otra época, otra ciudad y otra forma de mirar el mundo.</p>
+    <p>Esta página reúne recomendaciones, descubrimientos y notas personales. No pretende ser una enciclopedia: es una invitación a escuchar con atención y disfrutar el camino.</p>
+  </div>
+  <ul class="chips" aria-label="Estilos de jazz favoritos">
+    <li>Bebop</li><li>Cool jazz</li><li>Hard bop</li><li>Latin jazz</li><li>Jazz fusión</li>
+  </ul>
+</section>
+
+<section class="bloque" id="seleccion" aria-labelledby="seleccion-titulo">
+  <p class="etiqueta"><span class="numero">02</span> Selección personal</p>
+  <h2 id="seleccion-titulo">Tres puertas de entrada</h2>
+  <p class="bloque-intro">Álbumes esenciales para comenzar —o volver— a escuchar jazz.</p>
+  <div class="discos">
+    <article class="disco">
+      {% include spotify.html album="42ge6JtPfeF6FEYXCJ50Gu" titulo="Kind of Blue de Miles Davis" %}
+      <p class="disco-meta">Miles Davis · 1959</p>
+      <h3>Kind of Blue</h3>
+      <p>Espacio, elegancia y una conversación irrepetible entre seis músicos extraordinarios.</p>
+    </article>
+    <article class="disco">
+      {% include spotify.html album="7Eoz7hJvaX1eFkbpQxC5PA" titulo="A Love Supreme de John Coltrane" %}
+      <p class="disco-meta">John Coltrane · 1965</p>
+      <h3>A Love Supreme</h3>
+      <p>Una suite intensa y espiritual que muestra hasta dónde puede llegar la expresión personal.</p>
+    </article>
+    <article class="disco">
+      {% include spotify.html album="0nTTEAhCZsbbeplyDMIFuA" titulo="Time Out de The Dave Brubeck Quartet" %}
+      <p class="disco-meta">The Dave Brubeck Quartet · 1959</p>
+      <h3>Time Out</h3>
+      <p>Ritmos inesperados, melodías memorables y una entrada amable a la experimentación.</p>
+    </article>
+  </div>
+</section>
+
+<figure class="cita">
+  <blockquote>“El jazz no es solo música; <em>es una manera de estar presente.”</em></blockquote>
+  <figcaption>— Nota personal</figcaption>
+</figure>
+
+<section class="bloque" aria-labelledby="tornamesa-titulo">
+  <p class="etiqueta"><span class="numero">03</span> Mantengamos el ritmo</p>
+  <h2 id="tornamesa-titulo">¿Qué disco tienes <em>en la tornamesa?</em></h2>
+  <p class="bloque-intro">Recomendaciones · Conversaciones · Sesiones</p>
+  {%- comment -%} PENDIENTE: el correo hola@edarji.mx y las redes sociales se mostrarán cuando existan (sin MX al 19-oct-2026). {%- endcomment -%}
+</section>

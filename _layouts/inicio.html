@@ -1,0 +1,50 @@
+---
+layout: base
+---
+<section class="hero contenedor" aria-labelledby="hero-titulo">
+  <div class="hero-texto">
+    <p class="etiqueta">{{ site.tagline }}</p>
+    <h1 id="hero-titulo" class="hero-titulo">
+      <span>Pensar</span>
+      <span>Crear</span>
+      <span>Aprender</span>
+      <span class="acento">Compartir</span>
+    </h1>
+    <p class="hero-intro">{{ site.description }}</p>
+    <a class="boton" href="#areas">Explorar el cuaderno <span aria-hidden="true">↓</span></a>
+  </div>
+  <div class="hero-imagen">
+    {% include trazos.html %}
+    {% include figura.html foto=site.data.fotos.hero clase="hero-foto" sizes="(max-width: 800px) 88vw, 480px" prioridad=true %}
+    <p class="nota-manuscrita" aria-hidden="true">un cuaderno abierto</p>
+  </div>
+</section>
+
+<section class="recientes contenedor" aria-labelledby="recientes-titulo">
+  <header class="bloque-cabecera">
+    <p class="etiqueta">Exploraciones recientes</p>
+    <h2 id="recientes-titulo">Lo último en el cuaderno</h2>
+  </header>
+  {%- assign recientes = site.posts | slice: 0, 3 %}
+  {% include lista-entradas.html entradas=recientes vacio="Todavía no hay entradas publicadas. Las primeras páginas del cuaderno están en preparación." %}
+</section>
+
+<section class="areas contenedor" id="areas" aria-labelledby="areas-titulo">
+  <header class="bloque-cabecera">
+    <p class="etiqueta">Áreas del cuaderno</p>
+    <h2 id="areas-titulo">Por dónde empezar</h2>
+  </header>
+  <ul class="areas-rejilla">
+    {%- for area in site.data.areas %}
+    <li class="area area-{{ area.color }}">
+      <a href="{{ area.url | relative_url }}">
+        <span class="area-numero" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>
+        <span class="area-titulo">{{ area.titulo }}</span>
+        <span class="area-descripcion">{{ area.descripcion }}</span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+{{ content }}
