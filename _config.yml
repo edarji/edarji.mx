@@ -28,6 +28,11 @@ feed:
   path: feed.xml
 
 defaults:
+  # Imagen para redes sociales en todas las páginas (un artículo puede usar la suya con "image:")
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/hero-1200.jpg
   - scope:
       path: ""
       type: posts

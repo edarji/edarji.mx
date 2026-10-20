@@ -2,16 +2,16 @@
 # Mientras "archivo" esté vacío, la página muestra un marco que avisa que la foto está pendiente.
 # Para agregar una foto: ver docs/fotografias.md
 hero:
-  archivo: ""            # se generará desde IMG_1216.jpeg (café, sudadera verde)
+  archivo: "hero"        # desde IMG_1216.jpeg (café, sudadera verde); personas del fondo difuminadas
   original: IMG_1216.jpeg
   alt: Eduardo en una cafetería, con sudadera verde y una taza de café
   ancho: 1200
   alto: 1600
-  posicion: center 30%
+  posicion: center 35%
 musica:
-  archivo: ""            # se generará desde PhotoShoot-30.jpeg (sesión con saxofón)
-  original: PhotoShoot-30.jpeg
-  alt: Eduardo con su saxofón
+  archivo: "musica"      # desde PhotoShoot-29.jpeg (sesión con saxofón; la 30 no se recibió)
+  original: PhotoShoot-29.jpeg
+  alt: Eduardo con saco blanco y su saxofón dorado al hombro, sonriendo
   ancho: 1200
-  alto: 1600
+  alto: 1800
   posicion: center 30%

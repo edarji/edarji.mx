@@ -28,6 +28,11 @@ y el `alto` que indica el script. El encuadre se ajusta con `posicion` (por ejem
 | Uso | Original | Clave en `_data/fotos.yml` |
 |---|---|---|
 | Portada (hero) y Sobre mí | `IMG_1216.jpeg` (cafetería, sudadera verde) | `hero` |
-| Música | `PhotoShoot-30.jpeg` (sesión con saxofón) | `musica` |
+| Música | `PhotoShoot-29.jpeg` (sesión con saxofón; la 30 no se recibió) | `musica` |
+
+### Tratamiento aplicado a `IMG_1216.jpeg`
+
+Las personas del fondo (lado izquierdo) y una tarjeta sobre la mesa se difuminaron para no publicar a terceros.
+La figura del propietario no se tocó: sin cambios de rostro, proporciones, luz ni color. Solo se cambió el tamaño.
 
 La ilustración del sitio anterior (`assets/eduardo-saxofon*`) sigue en el repositorio pero está excluida de la publicación en `_config.yml`.
