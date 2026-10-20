@@ -911,8 +911,8 @@ h2 em {
   }
 
   .con-menu-compacto .menu a {
-    display: block;
-    padding: 0.75rem 0;
+    display: inline-block;
+    padding: 0.75rem 0 0.5rem;
     font-size: 1.15rem;
   }
 
