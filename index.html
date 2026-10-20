@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Ed ArJi Jazz: un espacio personal para escuchar, descubrir y conversar sobre jazz." />
     <meta name="theme-color" content="#11100e" />
+    <link rel="canonical" href="https://edarji.mx/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://edarji.mx/" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Ed ArJi Jazz" />
     <meta property="og:title" content="Ed ArJi Jazz — El jazz se escucha mejor sin prisa" />
     <meta property="og:description" content="Discos esenciales, historias, sesiones y conversaciones alrededor del jazz." />
     <meta property="og:image" content="https://edarji.mx/assets/eduardo-saxofon.jpeg" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1536" />
     <meta property="og:image:alt" content="Eduardo con un saxofón en una ilustración de estilo editorial" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>Ed ArJi Jazz — Discos, historias y sesiones</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <script>document.documentElement.classList.add("js");</script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -43,7 +55,11 @@
           </div>
         </div>
         <figure class="hero-portrait reveal">
-          <img src="assets/eduardo-saxofon.jpeg" alt="Eduardo sentado con traje claro y un saxofón dorado" width="1024" height="1536" />
+          <picture>
+            <source type="image/avif" srcset="assets/eduardo-saxofon-480.avif 480w, assets/eduardo-saxofon-768.avif 768w, assets/eduardo-saxofon-1024.avif 1024w" sizes="(max-width: 520px) 92vw, (max-width: 800px) 430px, 420px" />
+            <source type="image/webp" srcset="assets/eduardo-saxofon-480.webp 480w, assets/eduardo-saxofon-768.webp 768w, assets/eduardo-saxofon-1024.webp 1024w" sizes="(max-width: 520px) 92vw, (max-width: 800px) 430px, 420px" />
+            <img src="assets/eduardo-saxofon.jpeg" alt="Ilustración de Eduardo sentado con traje claro y un saxofón dorado" width="1024" height="1536" fetchpriority="high" />
+          </picture>
           <figcaption><span>Eduardo ArJi</span><strong>Jazz como lenguaje personal</strong><small>edarji.mx</small></figcaption>
         </figure>
         <p class="side-note" aria-hidden="true">edarji.mx · Jazz archive</p>
@@ -107,6 +123,6 @@
       </section>
     </main>
 
-    <footer class="site-footer section-shell"><p>© <span id="year"></span> Ed ArJi Jazz</p><p>Hecho para escucharse a 33⅓ RPM</p><a href="#inicio">Volver arriba ↑</a></footer>
+    <footer class="site-footer section-shell"><p>© <span id="year">2026</span> Ed ArJi Jazz</p><p>Hecho para escucharse a 33⅓ RPM</p><a href="#inicio">Volver arriba ↑</a></footer>
   </body>
 </html>

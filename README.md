@@ -8,6 +8,8 @@ Busca `PERSONALIZAR` en `index.html`. Ahí están marcados la frase principal, t
 
 La imagen principal se encuentra en `assets/eduardo-saxofon.jpeg`. Si deseas cambiarla, conserva ese nombre para no modificar el código.
 
+El sitio sirve versiones ligeras de esa imagen en AVIF y WebP (`assets/eduardo-saxofon-480|768|1024.avif|webp`). Si cambias la imagen, vuelve a generar también esas versiones; si no, seguirá apareciendo la anterior en la mayoría de los navegadores.
+
 Las portadas y reproductores de Kind of Blue, A Love Supreme y Time Out se cargan oficialmente desde Spotify. Para mostrarlos, el visitante necesita conexión a Internet.
 
 ## Publicación con GitHub Pages

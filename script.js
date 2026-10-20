@@ -1,16 +1,26 @@
 const menuButton = document.querySelector('.menu-toggle');
+const menuLabel = menuButton.querySelector('.sr-only');
 const menu = document.querySelector('#menu-principal');
 
-menuButton.addEventListener('click', () => {
-  const isOpen = menu.classList.toggle('open');
+function setMenu(isOpen) {
+  menu.classList.toggle('open', isOpen);
   menuButton.setAttribute('aria-expanded', String(isOpen));
+  menuLabel.textContent = isOpen ? 'Cerrar menú' : 'Abrir menú';
+}
+
+menuButton.addEventListener('click', () => {
+  setMenu(!menu.classList.contains('open'));
 });
 
 menu.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    menu.classList.remove('open');
-    menuButton.setAttribute('aria-expanded', 'false');
-  });
+  link.addEventListener('click', () => setMenu(false));
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && menu.classList.contains('open')) {
+    setMenu(false);
+    menuButton.focus();
+  }
 });
 
 document.querySelector('#year').textContent = new Date().getFullYear();
