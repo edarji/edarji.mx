@@ -1,6 +1,6 @@
 # edarji.mx · El Cuaderno Abierto
 
-Sitio personal de Eduardo ArJi: música, ideas, tecnología y vida en el mismo lugar.
+Sitio personal de Eduardo Arriola: música, ideas, tecnología y vida en el mismo lugar.
 Sitio estático construido con **Jekyll**, que GitHub Pages compila automáticamente al hacer push a `main`.
 
 | Quiero… | Lee |

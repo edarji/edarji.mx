@@ -5,8 +5,7 @@ intro: Una vida, varios intereses.
 description: "Soy Eduardo Arriola. Me gustan las ideas que desafían nuestras certezas, la música que nos invita a escuchar con atención y la tecnología que nos permite construir cosas nuevas."
 ---
 
-<!-- Texto: complemento editorial de ChatGPT (21-oct-2026). -->
-<!-- Contacto: sin correo hasta que exista un buzón operativo (hola@edarji.mx no tiene registro MX). -->
+{%- comment -%} Texto: complemento editorial de ChatGPT (21-oct-2026). {%- endcomment -%}
 
 {% include figura.html foto=site.data.fotos.hero clase="sobre-mi-foto" sizes="(max-width: 800px) 90vw, 360px" %}
 

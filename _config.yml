@@ -13,7 +13,7 @@ url: https://edarji.mx
 baseurl: ""
 lang: es_MX
 author:
-  name: Eduardo ArJi
+  name: Eduardo Arriola
 
 # Las URL de los artículos quedan como /ideas/la-incertidumbre-como-ventaja/
 permalink: /:categories/:title/
