@@ -5,6 +5,10 @@ title: Edarji
 tagline: El Cuaderno Abierto
 description: Un cuaderno abierto para explorar la música, las ideas, la tecnología y la vida en el mismo lugar.
 lema: Pensar. Crear. Aprender. Compartir.
+# Mensaje para secciones sin publicaciones (complemento editorial de ChatGPT, 21-oct-2026)
+vacio:
+  titulo: Las primeras páginas están por escribirse.
+  texto: Este espacio está tomando forma. Pronto encontrarás aquí ideas, lecturas, proyectos y experiencias que quiero compartir.
 url: https://edarji.mx
 baseurl: ""
 lang: es_MX

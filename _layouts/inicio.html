@@ -26,7 +26,7 @@ layout: base
     <h2 id="recientes-titulo">Lo último en el cuaderno</h2>
   </header>
   {%- assign recientes = site.posts | slice: 0, 3 %}
-  {% include lista-entradas.html entradas=recientes vacio="Todavía no hay entradas publicadas. Las primeras páginas del cuaderno están en preparación." %}
+  {% include lista-entradas.html entradas=recientes %}
 </section>
 
 <section class="areas contenedor" id="areas" aria-labelledby="areas-titulo">

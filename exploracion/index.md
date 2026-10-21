@@ -2,5 +2,5 @@
 layout: seccion
 title: Exploración
 etiqueta: exploracion
-intro: Entradas de distintas secciones que exploran territorios nuevos.
+intro: "Lugares, experiencias, viajes y descubrimientos que amplían nuestra manera de mirar el mundo."
 ---

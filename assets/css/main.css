@@ -427,6 +427,17 @@ h2 em {
   color: var(--carbon-suave);
 }
 
+.vacio p {
+  margin: 0;
+}
+
+.vacio .vacio-titulo {
+  margin-bottom: 0.4rem;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--carbon);
+}
+
 .entradas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));

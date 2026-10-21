@@ -1,5 +1,5 @@
 {%- comment -%}
-  Lista de entradas. Parámetros: entradas (lista), vacio (texto cuando no hay entradas).
+  Lista de entradas. Parámetro: entradas (lista). Sin entradas, muestra el mensaje de site.vacio (_config.yml).
 {%- endcomment -%}
 {%- if include.entradas.size > 0 %}
 <ol class="entradas">
@@ -12,5 +12,8 @@
   {%- endfor %}
 </ol>
 {%- else %}
-<p class="vacio">{{ include.vacio | default: "Todavía no hay entradas publicadas." }}</p>
+<div class="vacio">
+  <p class="vacio-titulo">{{ site.vacio.titulo }}</p>
+  <p>{{ site.vacio.texto }}</p>
+</div>
 {%- endif %}

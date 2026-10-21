@@ -1,23 +1,22 @@
 # Tarjetas "Áreas del cuaderno" de la portada.
-# Las descripciones vienen del handover de ChatGPT (20-oct-2026, §6).
-# PENDIENTE: ChatGPT puede sustituirlas por los textos editoriales definitivos.
+# Descripciones: complemento editorial de ChatGPT (21-oct-2026).
 - titulo: Música
   url: /musica/
-  descripcion: Jazz, saxofón, Big Band, grabaciones, discos y experiencias musicales.
+  descripcion: Jazz, saxofón, Big Band y el placer de aprender a escuchar de otra manera.
   color: azul
 - titulo: Ideas
   url: /ideas/
-  descripcion: Filosofía, psicología, reflexiones, lecturas y preguntas personales.
+  descripcion: Filosofía, preguntas incómodas y reflexiones que todavía no tienen una respuesta definitiva.
   color: terracota
 - titulo: Laboratorio
   url: /laboratorio/
-  descripcion: Inteligencia artificial, Python, Cyborg Lab, experimentos y proyectos personales.
+  descripcion: Inteligencia artificial, Python y pequeños experimentos para entender mejor la tecnología construyendo cosas.
   color: ocre
 - titulo: Exploración
   url: /exploracion/
-  descripcion: Entradas de distintas secciones que exploran territorios nuevos.
+  descripcion: Lugares, experiencias, viajes y descubrimientos que amplían nuestra manera de mirar el mundo.
   color: azul
 - titulo: Biblioteca
   url: /biblioteca/
-  descripcion: Libros, notas de lectura y recomendaciones.
+  descripcion: Libros, autores, lecturas y las ideas que merecen una segunda conversación.
   color: terracota

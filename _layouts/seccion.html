@@ -23,5 +23,5 @@ layout: base
   {%- else %}
   {%- assign entradas = site.categories[page.seccion] %}
   {%- endif %}
-  {% include lista-entradas.html entradas=entradas vacio="Todavía no hay entradas publicadas en esta sección. Las primeras están en preparación." %}
+  {% include lista-entradas.html entradas=entradas %}
 </section>
