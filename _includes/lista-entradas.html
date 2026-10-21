@@ -1,0 +1,19 @@
+{%- comment -%}
+  Lista de entradas. Parámetro: entradas (lista). Sin entradas, muestra el mensaje de site.vacio (_config.yml).
+{%- endcomment -%}
+{%- if include.entradas.size > 0 %}
+<ol class="entradas">
+  {%- for e in include.entradas %}
+  <li class="entrada">
+    <p class="entrada-meta"><span>{% assign clave = e.categories | first %}{% include nombre-seccion.html clave=clave %}</span> · <time datetime="{{ e.date | date_to_xmlschema }}">{{ e.date | date: '%d/%m/%Y' }}</time></p>
+    <h3 class="entrada-titulo"><a href="{{ e.url | relative_url }}">{{ e.title }}</a></h3>
+    {%- if e.resumen %}<p class="entrada-resumen">{{ e.resumen }}</p>{% endif %}
+  </li>
+  {%- endfor %}
+</ol>
+{%- else %}
+<div class="vacio">
+  <p class="vacio-titulo">{{ site.vacio.titulo }}</p>
+  <p>{{ site.vacio.texto }}</p>
+</div>
+{%- endif %}

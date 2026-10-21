@@ -1,0 +1,11 @@
+<footer class="pie">
+  <div class="contenedor pie-fila">
+    <p class="pie-firma"><span class="logo-firma">Edarji</span> {{ site.tagline }}</p>
+    <p class="pie-lema">{{ site.lema }}</p>
+    <p class="pie-enlaces">
+      <a href="https://edarji.net">Perfil profesional en edarji.net</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </p>
+    <p class="pie-copy">© {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
+  </div>
+</footer>

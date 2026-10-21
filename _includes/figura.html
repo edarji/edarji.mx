@@ -1,0 +1,25 @@
+{%- comment -%}
+  Fotografía con versiones AVIF, WebP y JPEG en varios tamaños.
+  Uso: {% include figura.html foto=site.data.fotos.hero clase="hero-foto" sizes="(max-width: 800px) 90vw, 520px" prioridad=true %}
+  Las versiones las genera scripts/optimizar_fotos.py como assets/img/<archivo>-<ancho>.<formato>
+  Si la foto aún no existe (archivo vacío), muestra un marco de "fotografía pendiente".
+{%- endcomment -%}
+{%- assign f = include.foto -%}
+{%- assign anchos = "480,800,1200" | split: "," -%}
+{%- assign formatos = "avif,webp" | split: "," -%}
+<figure class="figura {{ include.clase }}">
+  {%- if f.archivo != "" and f.archivo %}
+  <picture>
+    {%- for formato in formatos %}
+    <source type="image/{{ formato }}" sizes="{{ include.sizes }}" srcset="{% for w in anchos %}{{ '/assets/img/' | append: f.archivo | append: '-' | append: w | append: '.' | append: formato | relative_url }} {{ w }}w{% unless forloop.last %}, {% endunless %}{% endfor %}" />
+    {%- endfor %}
+    <img src="{{ '/assets/img/' | append: f.archivo | append: '-1200.jpg' | relative_url }}" sizes="{{ include.sizes }}" srcset="{% for w in anchos %}{{ '/assets/img/' | append: f.archivo | append: '-' | append: w | append: '.jpg' | relative_url }} {{ w }}w{% unless forloop.last %}, {% endunless %}{% endfor %}" alt="{{ f.alt }}" width="{{ f.ancho }}" height="{{ f.alto }}" style="object-position: {{ f.posicion | default: 'center' }}"{% if include.prioridad %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async" />
+  </picture>
+  {%- else %}
+  <div class="foto-pendiente" role="img" aria-label="Fotografía pendiente">
+    <span class="foto-pendiente-titulo">Fotografía original pendiente</span>
+    <span class="foto-pendiente-archivo">{{ f.original }}</span>
+  </div>
+  {%- endif %}
+  {%- if include.pie %}<figcaption>{{ include.pie }}</figcaption>{% endif %}
+</figure>

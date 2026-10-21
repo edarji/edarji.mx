@@ -1,0 +1,57 @@
+# Configuración de Jekyll para edarji.mx · El Cuaderno Abierto
+# GitHub Pages construye el sitio con la gema github-pages (Jekyll 3.10).
+
+title: Edarji
+tagline: El Cuaderno Abierto
+description: Un cuaderno abierto para explorar la música, las ideas, la tecnología y la vida en el mismo lugar.
+lema: Pensar. Crear. Aprender. Compartir.
+# Mensaje para secciones sin publicaciones (complemento editorial de ChatGPT, 21-oct-2026)
+vacio:
+  titulo: Las primeras páginas están por escribirse.
+  texto: Este espacio está tomando forma. Pronto encontrarás aquí ideas, lecturas, proyectos y experiencias que quiero compartir.
+url: https://edarji.mx
+baseurl: ""
+lang: es_MX
+author:
+  name: Eduardo Arriola
+
+# Las URL de los artículos quedan como /ideas/la-incertidumbre-como-ventaja/
+permalink: /:categories/:title/
+timezone: America/Mexico_City
+markdown: kramdown
+
+# Sin tema: el sitio usa sus propias plantillas (_layouts).
+theme: null
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
+defaults:
+  # Imagen para redes sociales en todas las páginas (un artículo puede usar la suya con "image:")
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/hero-1200.jpg
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: articulo
+
+# Archivos del repositorio que NO se publican en el sitio
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - docs/
+  - scripts/
+  - vendor/
+  - assets/fonts/*.txt
+  # Ilustración del sitio anterior: se conserva en el repo pero no se publica
+  # (política fotográfica v0.2). Pendiente de decisión final.
+  - assets/eduardo-saxofon*
