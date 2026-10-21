@@ -6,7 +6,7 @@ Todo el trabajo está en una rama. Producción (`main`) no cambia. Revertir = ce
 
 ## Después de publicar
 
-Antes de fusionar v0.2 se crea la etiqueta `v0-ed-arji-jazz` sobre el último `main` del sitio anterior.
+El sitio anterior (Ed ArJi Jazz) queda guardado en la rama `archivo-ed-arji-jazz`, que apunta al último `main` antes de v0.2.
 
 **Desde GitHub (recomendado):** abre el PR fusionado y pulsa **Revert**. Se crea un PR que deshace el cambio; fusiónalo.
 GitHub Pages vuelve a publicar la versión anterior en uno o dos minutos.
