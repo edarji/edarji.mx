@@ -1,0 +1,6 @@
+# Colecciones: series de artículos dentro de una sección.
+# Un artículo entra en una colección con "coleccion: <clave>" en su encabezado.
+filosofia-a-contratiempo:
+  titulo: Filosofía a contratiempo
+  seccion: ideas
+  url: /ideas/filosofia-a-contratiempo/
