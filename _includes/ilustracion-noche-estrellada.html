@@ -1,0 +1,99 @@
+{%- comment -%}
+  Ilustración original para "Bailando con el caos", inspirada en La noche estrellada de Van Gogh:
+  azul profundo, remolinos y pinceladas ocres. SVG dibujado a mano, sin imágenes externas.
+{%- endcomment -%}
+<figure class="ilustracion ilustracion-noche">
+  <svg viewBox="0 0 1200 560" role="img" aria-labelledby="ilustracion-noche-titulo" focusable="false" preserveAspectRatio="xMidYMid slice">
+    <title id="ilustracion-noche-titulo">Ilustración inspirada en La noche estrellada de Van Gogh: un cielo azul profundo con remolinos, estrellas y una luna ocres sobre un pueblo dormido y un ciprés oscuro.</title>
+    <defs>
+      <linearGradient id="noche-cielo" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0b2340" />
+        <stop offset="0.6" stop-color="#153b55" />
+        <stop offset="1" stop-color="#1f4f7a" />
+      </linearGradient>
+      <radialGradient id="noche-halo">
+        <stop offset="0" stop-color="#f2cf6b" stop-opacity="0.9" />
+        <stop offset="0.45" stop-color="#e7ae30" stop-opacity="0.35" />
+        <stop offset="1" stop-color="#e7ae30" stop-opacity="0" />
+      </radialGradient>
+      <filter id="noche-pincel" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="2" seed="7" />
+        <feDisplacementMap in="SourceGraphic" scale="9" />
+      </filter>
+    </defs>
+
+    <rect width="1200" height="560" fill="url(#noche-cielo)" />
+
+    <!-- Pinceladas de fondo: corrientes del cielo -->
+    <g class="noche-corrientes" fill="none" stroke-linecap="round" filter="url(#noche-pincel)">
+      <path d="M-20 150c120-50 230-40 330 10s210 70 320 20 240-90 380-40 160 60 210 40" stroke="#2f6a9a" stroke-width="16" stroke-dasharray="46 18" />
+      <path d="M-20 190c140-40 250-20 350 30s200 60 320 10 230-80 360-30 150 50 210 30" stroke="#6f9fc8" stroke-width="7" stroke-dasharray="30 22" />
+      <path d="M-20 100c160-30 260 0 360 30s220 30 330-10 260-60 360-20 120 30 190 20" stroke="#1f4f7a" stroke-width="20" stroke-dasharray="60 16" />
+      <path d="M-20 60c130-20 240 0 340 20s240 10 350-20 230-40 330-10 140 30 220 20" stroke="#2f6a9a" stroke-width="10" stroke-dasharray="38 20" />
+      <path d="M-20 300c150-20 280 10 380 30s240 0 360-20 220-20 320 0 130 20 180 10" stroke="#2f6a9a" stroke-width="12" stroke-dasharray="44 18" />
+      <path d="M-20 340c170-10 290 10 390 20s230-10 350-20 230 0 320 10 120 10 180 0" stroke="#a9c6de" stroke-width="4" stroke-dasharray="24 26" opacity="0.7" />
+    </g>
+
+    <!-- Gran remolino central -->
+    <g class="noche-remolino" fill="none" stroke-linecap="round" filter="url(#noche-pincel)">
+      <path d="M470 210c40-70 150-80 200-20s10 140-70 140-100-80-50-110 100-10 90 30-50 40-60 10" stroke="#a9c6de" stroke-width="9" stroke-dasharray="26 12" />
+      <path d="M440 220c50-100 210-110 270-30s0 190-120 190" stroke="#6f9fc8" stroke-width="12" stroke-dasharray="34 14" />
+      <path d="M720 170c80-40 160-20 190 30s-10 100-70 100-80-50-40-70 70 0 60 25" stroke="#e7ae30" stroke-width="6" stroke-dasharray="20 14" opacity="0.85" />
+    </g>
+
+    <!-- Luna y estrellas -->
+    <g class="noche-astros">
+      <circle cx="1040" cy="110" r="95" fill="url(#noche-halo)" />
+      <path d="M1040 50a60 60 0 1 0 52 90a48 48 0 1 1-52-90z" fill="#f2cf6b" />
+      <g fill="url(#noche-halo)">
+        <circle cx="150" cy="90" r="46" />
+        <circle cx="330" cy="60" r="38" />
+        <circle cx="840" cy="70" r="40" />
+        <circle cx="940" cy="250" r="42" />
+        <circle cx="250" cy="240" r="34" />
+        <circle cx="620" cy="60" r="30" />
+      </g>
+      <g fill="#f2cf6b">
+        <circle cx="150" cy="90" r="10" />
+        <circle cx="330" cy="60" r="8" />
+        <circle cx="840" cy="70" r="9" />
+        <circle cx="940" cy="250" r="9" />
+        <circle cx="250" cy="240" r="7" />
+        <circle cx="620" cy="60" r="6" />
+      </g>
+      <g fill="none" stroke="#e7ae30" stroke-width="3" stroke-dasharray="10 8" stroke-linecap="round" opacity="0.8">
+        <circle cx="150" cy="90" r="24" />
+        <circle cx="840" cy="70" r="22" />
+        <circle cx="940" cy="250" r="24" />
+        <circle cx="1040" cy="110" r="74" />
+      </g>
+    </g>
+
+    <!-- Colinas y pueblo -->
+    <path d="M0 420c120-40 220-50 330-30s200 10 300-20 220-40 330-10 160 20 240 10v190H0z" fill="#183f63" />
+    <path d="M0 450c140-20 260-10 380 0s240-10 360-20 260 0 460 20v110H0z" fill="#10304e" />
+    <g class="noche-pueblo">
+      <g fill="#0b2340">
+        <rect x="560" y="440" width="34" height="28" />
+        <rect x="604" y="432" width="40" height="36" />
+        <rect x="656" y="444" width="30" height="24" />
+        <rect x="700" y="436" width="44" height="32" />
+        <rect x="756" y="446" width="30" height="22" />
+        <rect x="800" y="440" width="38" height="28" />
+        <path d="M676 444l8-70 8 70z" />
+      </g>
+      <g fill="#e7ae30">
+        <rect x="570" y="450" width="7" height="7" />
+        <rect x="616" y="442" width="7" height="7" />
+        <rect x="630" y="452" width="7" height="7" />
+        <rect x="712" y="446" width="7" height="7" />
+        <rect x="726" y="454" width="7" height="7" />
+        <rect x="812" y="450" width="7" height="7" />
+      </g>
+    </g>
+
+    <!-- Ciprés -->
+    <path class="noche-cipres" d="M150 560c-30-70-20-150 0-230 12-50 18-110 32-180 14 70 22 130 32 180 20 80 26 160-4 230z" fill="#0a1b2c" filter="url(#noche-pincel)" />
+    <path d="M182 170c-4 80-14 160-2 260M196 260c2 60 8 120 0 200" fill="none" stroke="#1f4f7a" stroke-width="3" stroke-linecap="round" opacity="0.7" />
+  </svg>
+</figure>

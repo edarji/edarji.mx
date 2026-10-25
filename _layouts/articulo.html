@@ -8,9 +8,16 @@ layout: base
       <a href="{{ '/' | append: clave | append: '/' | relative_url }}">{% include nombre-seccion.html clave=clave %}</a>
       · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d/%m/%Y' }}</time>
     </p>
+    {%- assign coleccion = site.data.colecciones[page.coleccion] %}
+    {%- if coleccion %}
+    <p class="articulo-coleccion">Colección <a href="{{ coleccion.url | relative_url }}">{{ coleccion.titulo }}</a></p>
+    {%- endif %}
     <h1>{{ page.title }}</h1>
     {%- if page.resumen %}<p class="articulo-resumen">{{ page.resumen }}</p>{% endif %}
   </header>
+  {%- if page.ilustracion %}
+  {% include ilustracion-{{ page.ilustracion }}.html %}
+  {%- endif %}
   <div class="prosa">
     {{ content }}
   </div>

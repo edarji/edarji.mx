@@ -756,6 +756,84 @@ h2 em {
   color: var(--carbon-suave);
 }
 
+/* Colección a la que pertenece un artículo (_data/colecciones.yml) */
+.articulo-coleccion {
+  margin: -0.25rem 0 1rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--carbon-suave);
+}
+
+.articulo-coleccion a {
+  color: var(--azul);
+}
+
+/* Ilustración de cabecera de un artículo: más ancha que la columna de lectura */
+.ilustracion {
+  width: min(56rem, 100vw - 2 * var(--margen));
+  margin: 0 0 3rem 50%;
+  transform: translateX(-50%);
+  box-shadow: 8px 8px 0 var(--ocre);
+}
+
+.ilustracion svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 15 / 7;
+}
+
+/* Frase final destacada: en Markdown, {: .frase-final} debajo del párrafo */
+.prosa .frase-final {
+  position: relative;
+  margin: 3.5rem 0 0;
+  padding: 2rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3.4vw, 1.9rem);
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--azul);
+}
+
+.prosa .frase-final::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5rem;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--ocre);
+}
+
+.colecciones {
+  margin-top: 1rem;
+}
+
+.colecciones-lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.colecciones-lista li {
+  padding: 1rem 1.25rem;
+  background: var(--papel);
+  border-left: 4px solid var(--azul);
+  font-size: 1.15rem;
+}
+
+.colecciones-lista a {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--azul);
+}
+
+.colecciones-lista span {
+  color: var(--carbon-suave);
+}
+
 .sobre-mi-foto {
   max-width: 22rem;
   margin: 0 0 2rem;

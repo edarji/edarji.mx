@@ -41,3 +41,10 @@ resumen: Una o dos líneas para la portada y la lista de la sección.
 ## Borradores
 
 Lo que está en `_drafts/` nunca se publica. Para verlo en tu Mac: `bundle exec jekyll serve --drafts`.
+
+## Colecciones, ilustración y frase final
+
+- **Colección:** `coleccion: filosofia-a-contratiempo` en el encabezado. Las colecciones se definen en `_data/colecciones.yml`;
+  cada una tiene su página (por ejemplo `ideas/filosofia-a-contratiempo/index.md`) y aparece en su sección.
+- **Ilustración de cabecera:** `ilustracion: noche-estrellada` usa `_includes/ilustracion-noche-estrellada.html` (SVG).
+- **Frase destacada:** escribe `{: .frase-final}` en la línea siguiente al párrafo, sin línea en blanco entre ambos.

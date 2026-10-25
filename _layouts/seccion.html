@@ -2,10 +2,11 @@
 layout: base
 ---
 {%- comment -%}
-  Página de sección. Front matter: title, intro y seccion (la categoría de sus artículos) o etiqueta (para Exploración).
+  Página de sección. Front matter: title, intro y seccion (la categoría de sus artículos), etiqueta (para Exploración)
+  o coleccion (clave de _data/colecciones.yml). etiqueta_superior cambia el rótulo sobre el título.
 {%- endcomment -%}
 <header class="seccion-cabecera contenedor">
-  <p class="etiqueta">{{ site.tagline }}</p>
+  <p class="etiqueta">{{ page.etiqueta_superior | default: site.tagline }}</p>
   <h1>{{ page.title }}</h1>
   {%- if page.intro %}<p class="seccion-intro">{{ page.intro }}</p>{% endif %}
 </header>
@@ -18,7 +19,9 @@ layout: base
 
 <section class="seccion-entradas contenedor" aria-labelledby="entradas-titulo">
   <h2 id="entradas-titulo" class="bloque-titulo">Entradas</h2>
-  {%- if page.etiqueta %}
+  {%- if page.coleccion %}
+  {%- assign entradas = site.posts | where: "coleccion", page.coleccion %}
+  {%- elsif page.etiqueta %}
   {%- assign entradas = site.tags[page.etiqueta] %}
   {%- else %}
   {%- assign entradas = site.categories[page.seccion] %}
