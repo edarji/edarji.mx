@@ -1,6 +1,5 @@
 ---
 # Publicación 002 de «Filosofía a contratiempo». Texto definitivo aprobado por el autor (handover ChatGPT, 1-nov-2026).
-# Está en _drafts/: NO se publica. Al autorizar el despliegue, moverlo a _posts/AAAA-MM-DD-el-cauce-y-la-intemperie.md
 title: "El cauce y la intemperie"
 subtitulo: Un pequeño ensayo a partir de las enseñanzas de Jordan Peterson.
 category: ideas
