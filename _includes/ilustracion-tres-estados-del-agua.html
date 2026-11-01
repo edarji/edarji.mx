@@ -1,0 +1,133 @@
+{%- comment -%}
+  Ilustración original para "El cauce y la intemperie": los tres estados del agua.
+  A la izquierda, un glaciar de formas cristalinas (el hielo: orden, refugio, inmovilidad);
+  a la derecha, remolinos de vapor que se dispersan (la libertad sin rumbo);
+  al centro, un río que avanza hacia quien mira y rodea las piedras (el agua que encuentra su cauce).
+  SVG dibujado a mano, con pinceladas en la misma familia que la ilustración de "Bailando con el caos",
+  pero con otra composición y una luz de amanecer. Sin imágenes externas.
+{%- endcomment -%}
+<figure class="ilustracion ilustracion-agua">
+  <svg viewBox="0 0 1200 560" role="img" aria-labelledby="ilustracion-agua-titulo" focusable="false" preserveAspectRatio="xMidYMid slice">
+    <title id="ilustracion-agua-titulo">Ilustración de los tres estados del agua: a la izquierda un glaciar de formas cristalinas, a la derecha nubes de vapor que se arremolinan y se dispersan, y entre ambos un río azul profundo que avanza serpenteando entre piedras bajo una luz ocre de amanecer.</title>
+    <defs>
+      <linearGradient id="agua-cielo" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f5ede0" />
+        <stop offset="0.55" stop-color="#f0dcb2" />
+        <stop offset="1" stop-color="#e7c27a" />
+      </linearGradient>
+      <linearGradient id="agua-rio" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2f6a9a" />
+        <stop offset="0.45" stop-color="#1f4f7a" />
+        <stop offset="1" stop-color="#0b2340" />
+      </linearGradient>
+      <linearGradient id="agua-hielo" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#fbf8f2" />
+        <stop offset="1" stop-color="#cfe0ec" />
+      </linearGradient>
+      <radialGradient id="agua-sol">
+        <stop offset="0" stop-color="#f2cf6b" stop-opacity="0.95" />
+        <stop offset="0.5" stop-color="#e7ae30" stop-opacity="0.4" />
+        <stop offset="1" stop-color="#e7ae30" stop-opacity="0" />
+      </radialGradient>
+      <filter id="agua-pincel" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.025 0.05" numOctaves="2" seed="11" />
+        <feDisplacementMap in="SourceGraphic" scale="8" />
+      </filter>
+      <filter id="agua-bruma" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="4" />
+        <feDisplacementMap in="SourceGraphic" scale="22" />
+        <feGaussianBlur stdDeviation="1.5" />
+      </filter>
+    </defs>
+
+    <!-- Cielo de amanecer con pinceladas -->
+    <rect width="1200" height="560" fill="url(#agua-cielo)" />
+    <g fill="none" stroke-linecap="round" filter="url(#agua-pincel)" opacity="0.7">
+      <path d="M-20 70c160-30 300-10 430 10s260 10 400-20 260-20 410 0" stroke="#ecd3a0" stroke-width="18" stroke-dasharray="54 20" />
+      <path d="M-20 130c180-20 320 0 450 20s250 0 390-20 250-10 400 10" stroke="#e7c27a" stroke-width="9" stroke-dasharray="36 22" />
+      <path d="M-20 200c150-10 300 10 440 20s260 0 400-10 240 0 400 10" stroke="#f5ede0" stroke-width="12" stroke-dasharray="44 18" />
+    </g>
+
+    <!-- Sol bajo, velado por el vapor -->
+    <circle cx="820" cy="220" r="120" fill="url(#agua-sol)" />
+    <circle cx="820" cy="220" r="46" fill="#e7ae30" opacity="0.9" />
+    <circle cx="820" cy="220" r="70" fill="none" stroke="#e7ae30" stroke-width="3" stroke-dasharray="10 8" stroke-linecap="round" opacity="0.8" />
+
+    <!-- Montañas lejanas -->
+    <path d="M0 310c90-40 170-60 260-40s150 20 240-10 160-50 260-20 170 40 260 20 110-20 180-10v310H0z" fill="#6f9fc8" opacity="0.55" filter="url(#agua-pincel)" />
+
+    <!-- Tierra: orillas ocres y terracota -->
+    <path d="M0 320c200-14 400-18 600-16s400 6 600 18v240H0z" fill="#d9a441" />
+    <g fill="none" stroke-linecap="round" filter="url(#agua-pincel)">
+      <path d="M-10 380c120-10 220 0 320 10" stroke="#c88a2c" stroke-width="14" stroke-dasharray="40 16" />
+      <path d="M-10 450c100-6 180 4 260 20" stroke="#bd573f" stroke-width="12" stroke-dasharray="34 18" opacity="0.8" />
+      <path d="M-10 520c90 0 160 10 220 24" stroke="#9c4532" stroke-width="16" stroke-dasharray="44 14" opacity="0.8" />
+      <path d="M840 380c120 0 230 0 370 14" stroke="#c88a2c" stroke-width="14" stroke-dasharray="40 16" />
+      <path d="M940 460c90-4 170 0 270 16" stroke="#bd573f" stroke-width="12" stroke-dasharray="34 18" opacity="0.8" />
+      <path d="M990 530c80-2 140 6 220 18" stroke="#9c4532" stroke-width="16" stroke-dasharray="44 14" opacity="0.8" />
+    </g>
+
+    <!-- Hielo: glaciar cristalino a la izquierda -->
+    <g class="agua-hielo" stroke="#153b55" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M0 336V170l66-58 54 66 74-92 60 74 58-40 64 86 52 34 34 96z" fill="url(#agua-hielo)" />
+      <path d="M66 112l22 224H0V170z" fill="#a9c6de" />
+      <path d="M194 86l26 250h-84l-16-158z" fill="#cfe0ec" />
+      <path d="M254 160l58-40 10 216h-70z" fill="#a9c6de" opacity="0.85" />
+      <path d="M376 206l52 34 34 96h-96z" fill="#6f9fc8" opacity="0.6" />
+    </g>
+    <g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.9">
+      <path d="M40 200l20 30M150 150l18 40M230 130l10 60M300 170l12 36M400 240l14 30" />
+      <path d="M100 260l40-30M250 250l30-24M360 280l26-18" />
+    </g>
+    <!-- Columnas de hielo al frente: el refugio que puede volverse jaula -->
+    <g stroke="#153b55" stroke-width="2" fill="#e6eef4">
+      <path d="M40 336l10-56 10 56z" />
+      <path d="M96 336l8-74 8 74z" />
+      <path d="M150 336l9-50 9 50z" />
+      <path d="M204 336l8-66 8 66z" />
+      <path d="M256 336l9-46 9 46z" />
+      <path d="M310 336l8-60 8 60z" />
+    </g>
+
+    <!-- Río: nace entre el hielo y el vapor y avanza hacia quien mira -->
+    <path d="M560 304c-40 50 70 92-30 140s-250 70-290 116h760c-80-46-250-70-230-126s-90-80-110-130z" fill="url(#agua-rio)" />
+    <g fill="none" stroke-linecap="round" filter="url(#agua-pincel)">
+      <path d="M588 318c-20 40 50 80-30 124s-200 70-240 110" stroke="#6f9fc8" stroke-width="7" stroke-dasharray="28 16" />
+      <path d="M612 322c-10 44 60 86-10 130s-150 62-150 104" stroke="#a9c6de" stroke-width="4" stroke-dasharray="20 18" opacity="0.8" />
+      <path d="M630 330c10 40 80 70 30 120s-40 70 40 106" stroke="#6f9fc8" stroke-width="8" stroke-dasharray="32 14" />
+      <path d="M650 340c30 30 100 60 80 110s90 70 160 104" stroke="#2f6a9a" stroke-width="10" stroke-dasharray="40 14" />
+      <path d="M600 470c40 10 90 10 140 0" stroke="#e7ae30" stroke-width="5" stroke-dasharray="18 14" opacity="0.85" />
+      <path d="M520 420c30 6 60 6 90 0M680 400c20 6 40 6 60 0" stroke="#f2cf6b" stroke-width="4" stroke-dasharray="14 12" opacity="0.8" />
+    </g>
+    <!-- Piedras que el río rodea -->
+    <g fill="#153b55" stroke="#0b2340" stroke-width="2">
+      <path d="M470 500c10-24 60-28 76-6s-8 34-40 34-44-10-36-28z" />
+      <path d="M700 430c6-14 36-16 44-2s-6 20-24 20-24-6-20-18z" />
+    </g>
+    <path d="M462 524c30 10 70 10 100-2M694 448c16 6 36 6 52-2" fill="none" stroke="#a9c6de" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 8" />
+    <!-- Trozos de hielo que se deshacen en la corriente -->
+    <g fill="#f5f8fb" stroke="#153b55" stroke-width="1.5" stroke-linejoin="round">
+      <path d="M560 360l18-8 10 12-14 8z" />
+      <path d="M520 400l22-6 6 14-20 6z" />
+      <path d="M430 470l16-10 12 10-16 10z" />
+    </g>
+
+    <!-- Vapor: remolinos que suben y se dispersan a la derecha -->
+    <g class="agua-vapor" fill="#fbf6ee" filter="url(#agua-bruma)">
+      <ellipse cx="900" cy="330" rx="150" ry="40" opacity="0.85" />
+      <ellipse cx="980" cy="270" rx="130" ry="46" opacity="0.75" />
+      <ellipse cx="1060" cy="200" rx="140" ry="50" opacity="0.65" />
+      <ellipse cx="1120" cy="120" rx="120" ry="44" opacity="0.5" />
+      <ellipse cx="960" cy="150" rx="80" ry="30" opacity="0.45" />
+      <ellipse cx="1150" cy="40" rx="100" ry="30" opacity="0.35" />
+    </g>
+    <g fill="none" stroke-linecap="round" filter="url(#agua-pincel)">
+      <path d="M760 360c40-30 100-20 100 10s-50 30-50 6 30-20 40 0" stroke="#a9c6de" stroke-width="6" stroke-dasharray="22 12" />
+      <path d="M860 320c60-40 150-30 150 20s-80 40-70 4 60-24 60 4" stroke="#6f9fc8" stroke-width="5" stroke-dasharray="20 12" opacity="0.85" />
+      <path d="M940 240c60-50 170-40 180 20s-90 50-80 10 70-30 64 0" stroke="#a9c6de" stroke-width="6" stroke-dasharray="24 12" />
+      <path d="M1020 160c50-50 160-40 170 10s-70 50-70 14 50-24 50 2" stroke="#e7ae30" stroke-width="4" stroke-dasharray="16 12" opacity="0.8" />
+      <path d="M900 200c30-30 70-30 80-6M1080 80c30-30 80-34 120-14M980 100c20-24 50-28 70-14" stroke="#6f9fc8" stroke-width="4" stroke-dasharray="14 12" opacity="0.7" />
+      <path d="M1130 300c20-14 50-14 70 0M860 140c14-12 34-12 46 0" stroke="#e7ae30" stroke-width="3" stroke-dasharray="10 10" opacity="0.7" />
+    </g>
+  </svg>
+</figure>
