@@ -8,10 +8,12 @@ Las fotografías personales se sustituyeron por dos **ilustraciones expresionist
 |---|---|---|---|
 | Portada, Sobre mí e imagen para redes (Open Graph) | `oil_paint_impasto_style_portrait_in_thick_express.png` (figura pensativa, saxofón descansando) | `hero` | `assets/img/pintura-contemplativa-*` |
 | Música | `a_painted_impasto_oil_style_image_identical_in_com.png` (saxofonista tocando) | `musica` | `assets/img/pintura-saxofonista-*` |
+| Música · sección 01 «Mi relación con el jazz» | `a_painterly_impressionist_oil_brushstroke_style_i.png` (saxofonista con sombrero; agregada por Lalo) | `jazz` | `assets/img/pintura-sombrero-*` |
 
 Reglas: **no modificar ni reinterpretar las pinturas** (sin corregir proporciones, colores ni composición, sin recortes).
 Solo se cambia el tamaño y el formato. Por eso la portada usa la proporción 4:5 de las pinturas.
 Las pinturas miden 1122 px de ancho: el archivo `-1200` es en realidad de 1122 px (el script nunca amplía).
+El PNG del saxofonista con sombrero trae esquinas redondeadas con fondo blanco: el CSS (`.jazz-foto img`) las oculta con `border-radius`, sin tocar el archivo.
 Las fotografías anteriores (`hero-*`, `musica-*`) se retiraron del sitio pero siguen en el historial de Git.
 
 Para regenerar las versiones web:

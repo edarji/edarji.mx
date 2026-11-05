@@ -17,3 +17,10 @@ musica:
   ancho: 1122
   alto: 1402
   posicion: center
+jazz:
+  archivo: "pintura-sombrero"        # a_painterly_impressionist_oil_brushstroke_style_i.png (agregada por Lalo, 5-nov-2026)
+  original: a_painterly_impressionist_oil_brushstroke_style_i.png
+  alt: "Pintura de pincelada suelta en azules, crema y naranjas: un hombre de cabello canoso, con sombrero claro, camisa blanca y tirantes, toca el saxofón con los ojos cerrados."
+  ancho: 1118
+  alto: 1407
+  posicion: center
