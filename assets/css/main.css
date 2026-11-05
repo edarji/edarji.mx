@@ -380,7 +380,8 @@ h2 em {
 
 .hero-foto img,
 .hero-foto .foto-pendiente {
-  aspect-ratio: 3 / 4;
+  /* 4:5 es la proporción de las pinturas: así no se recorta la composición. */
+  aspect-ratio: 4 / 5;
   box-shadow: 0 20px 40px rgba(21, 59, 85, 0.18);
 }
 
