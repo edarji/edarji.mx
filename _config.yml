@@ -36,7 +36,11 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/img/hero-1200.jpg
+      image:
+        path: /assets/img/pintura-contemplativa-1200.jpg
+        height: 1402
+        width: 1122
+        alt: "Pintura expresionista de un hombre canoso, pensativo, sentado junto a su saxofón"
   - scope:
       path: ""
       type: posts

@@ -380,7 +380,8 @@ h2 em {
 
 .hero-foto img,
 .hero-foto .foto-pendiente {
-  aspect-ratio: 3 / 4;
+  /* 4:5 es la proporción de las pinturas: así no se recorta la composición. */
+  aspect-ratio: 4 / 5;
   box-shadow: 0 20px 40px rgba(21, 59, 85, 0.18);
 }
 
@@ -608,6 +609,24 @@ h2 em {
 
 .dos-columnas p {
   margin: 0;
+}
+
+/* Música · sección 01: texto y pintura lado a lado */
+.historia-con-pintura {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
+  gap: 3rem;
+  align-items: start;
+}
+
+.jazz-foto {
+  margin-top: 2rem;
+}
+
+/* El PNG original trae esquinas redondeadas con fondo blanco: se ocultan con el mismo radio, sin tocar el archivo. */
+.jazz-foto img {
+  border-radius: 2% / 1.6%;
+  box-shadow: 0 20px 40px rgba(21, 59, 85, 0.18);
 }
 
 .chips {
@@ -1029,8 +1048,13 @@ h2 em {
   }
 
   .musica-portada,
-  .dos-columnas {
+  .dos-columnas,
+  .historia-con-pintura {
     grid-template-columns: 1fr;
+  }
+
+  .jazz-foto {
+    max-width: 22rem;
   }
 
   .musica-foto {
